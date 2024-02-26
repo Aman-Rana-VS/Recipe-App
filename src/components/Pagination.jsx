@@ -10,7 +10,7 @@ const Pagination = ({LIMIT, totalLength, setCurrentPage, currentPage}) => {
 
   return (
     <div>
-        Pages : {" "}  
+        {pageNumbers.length ? "Pages : " : ""}  
         {pageNumbers.map((pg, ind) => {
             return (<button className={`${styles.pageButton} ${pg === currentPage ? styles.highlighted : ""}`} onClick={() => setCurrentPage(pg)} key={ind}>{pg}</button>)
         })}

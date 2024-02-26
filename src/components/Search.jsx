@@ -8,16 +8,16 @@ const Search = ({foodData, setFoodData}) => {
 
   const URL = `${BaseURL}?query=${query}&apiKey=${API_KEY}`
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //       const res = await fetch(URL);
-  //       const data = await res.json();
-  //       console.log(data.results);
-  //       setFoodData(data.results);
-  //   }
+  useEffect(() => {
+    async function fetchData() {
+        const res = await fetch(URL);
+        const data = await res.json();
+        console.log(data.results);
+        setFoodData(data.results);
+    }
 
-  //   fetchData();
-  // }, [query])
+    fetchData();
+  }, [query])
   return (
     <div className={styles.searchContainer}>
         <input className={styles.input} type='text' value={query} onChange={(e) => setQuery(e.target.value)} placeholder='Search Recipe'></input>
