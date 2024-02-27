@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ErrorPage from './components/router/ErrorPage.jsx'
-import About from './components/router/About.jsx'
-import Recipes from './components/router/Recipes.jsx'
-import Home from './components/router/Home.jsx'
+
+const Home = lazy(() => import('./components/router/Home.jsx'))
+const About = lazy(() => import('./components/router/About.jsx'))
+const Recipes = lazy(() => import('./components/router/Recipes.jsx'))
+
 
 const router = createBrowserRouter([
   {
@@ -15,15 +17,27 @@ const router = createBrowserRouter([
     children : [
       {
         path : "",
-        element : <Home/>
+        element : (
+          <Suspense fallback="Loading...">
+            <Home/>
+          </Suspense>
+        )
       },
       {
         path : "about",
-        element : <About />
+        element : (
+          <Suspense fallback="Loading...">
+            <About />
+          </Suspense>
+        )
       },
       {
         path : "recipes",
-        element : <Recipes />
+        element : (
+          <Suspense fallback="Loading...">
+            <Recipes />
+          </Suspense>
+        )
       }
     ]
   }
