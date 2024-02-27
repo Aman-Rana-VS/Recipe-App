@@ -32,8 +32,8 @@
     color: #adaab0;
 }
 
-.recipeInstructions ol {
-    margin-left: 0;
+.recipeInstructions ol{
+    margin-left: 10px;
 }
 
 .recipeInstructions li {

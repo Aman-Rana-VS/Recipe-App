@@ -1,4 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
     margin: 0;
     font-family: Polysans, sans-serif;
+}
+
+.active {
+    color: red;
 }

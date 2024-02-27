@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './fooddetails.module.css'
 import ItemList from './ItemList';
+
 const FoodDetails = ({foodId}) => {
   const BaseURL = `https://api.spoonacular.com/recipes/${foodId}/information`
   const API_KEY = "82a258d0f71c48c59346b965ebbe68a3";
@@ -45,7 +46,7 @@ const FoodDetails = ({foodId}) => {
         <ItemList food={food} />
         <h2>Instructions</h2>
         <div className={styles.recipeInstructions}>
-          <ol>
+          <ol className='list-decimal'>
             {food.analyzedInstructions[0].steps.map((curr, ind) => {
               return (<li key={ind}>{curr.step}</li>)
             })}
